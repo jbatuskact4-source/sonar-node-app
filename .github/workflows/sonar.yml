@@ -43,12 +43,13 @@ jobs:
           args: >
             -Dsonar.projectKey=sonar-node-app
             -Dsonar.sources=.
-            -Dsonar.host.url=http://localhost:9000
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: http://localhost:9000
 
       - name: Check Quality Gate
         uses: SonarSource/sonarqube-quality-gate-action@v1.1.0
         timeout-minutes: 5
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: http://localhost:9000
